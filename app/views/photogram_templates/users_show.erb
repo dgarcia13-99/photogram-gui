@@ -2,9 +2,9 @@
 
 <dl> 
   <dt>ID</dt>
-  <dd><%=User.where({:username => @username}).at(0).id%></dd>
+  <dd><%=@this_user.id%></dd>
   <dt>Edit user</dt>
-  <dd><form action="/update_user" method="post">
+  <dd><form action="/update_user/<%=@username%>" method="post">
       <label for="update_user_box">Username</label>
       <input type="text" id="update_user_box" name="update_username" value="<%=@username%>">
       <button>Update user</button>
