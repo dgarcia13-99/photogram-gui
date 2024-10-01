@@ -17,11 +17,8 @@ class Photo < ApplicationRecord
 
   def poster
     my_owner_id = self.owner_id
-
     matching_users = User.where({ :id => my_owner_id })
-
     the_user = matching_users.at(0)
-
     return the_user
   end
 
