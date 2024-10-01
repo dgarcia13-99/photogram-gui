@@ -19,17 +19,13 @@ class User < ApplicationRecord
 
   def comments
     my_id = self.id
-
     matching_comments = Comment.where({ :author_id => my_id })
-
     return matching_comments
   end
 
   def own_photos
     my_id = self.id
-
     matching_photos = Photo.where({ :owner_id => my_id })
-
     return matching_photos
   end
 

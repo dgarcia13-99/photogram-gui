@@ -1,0 +1,25 @@
+<h1>List of users</h1>
+
+<form action="/add_user" method="post">
+<label for="add_user_box">Username</label>
+<input type="text" id="add_user_box" name="add_user_form" placeholder="Enter a username...">
+<button>Add user</button>
+</form>
+
+<hr>
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Username</th>
+    <th></th>
+  </tr>
+
+<%User.all.order({:username=> :asc}).each do |each_user|%>
+  <tr>
+    <td><%=each_user.id%></td>
+    <td> <%=each_user.username%></td>
+    <td><a href="/users/<%=each_user.username%>">Show details</a></td>
+  </tr>
+<%end%>
+</table>
